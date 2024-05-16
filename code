@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+int p[1000001];
+
+int main()
+{
+    int n;
+    cin >> n;
+    
+    int secvMax = 0, st, dr;
+    for(int i = 1; i <= n; ++ i){
+        unsigned int num;
+        cin >> num;
+        
+        if(!p[num]){
+            p[num] = i;
+        }
+        else{
+            if(i - p[num] > secvMax){
+                secvMax = i - p[num];
+                st = p[num];
+                dr = i;
+            }
+        }
+    }
+    
+    cout << st << ' ' << dr;
+    return 0;
+}
